@@ -1,35 +1,42 @@
+/* This applies the color red to both normal and small paragraphs. */
 .para,
 .small-para {
   color: hsl(0, 100%, 50%);
 }
 
-.small-para {
-  font-size: 12px;
-}
-
 .para {
   font-size: 22px;
 }
-
-.confirm {
-  background: green;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-} 
-
+/* .small-para rule was above .para rule causing it to be overridden. By moving
+it down, we can get it to execute appropriately without being overridden by the
+more generic parent class rule(s). */
+.small-para {
+  font-size: 12px;
+}
+/* This button rule was below the .confirm rule and was therefore overriding
+the .confirm rule due to order of rules (cascade). */
 .button {
   background-color: #ffc0cb;
   color: black;
   font-size: 20px;
 }
-
-.child {
-  color: red;
-  font-size: 14px;
+/* By copying and pasting this rule below the generic .button rule above, I was
+able to get the .confirm rule to execute due to proper cascade order. */
+.confirm {
+  background: green;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
-
+/* div.text had higher specificity than its child causing it to override they
+rule below */
 div.text {
   color: green;
   font-size: 28px;
+}
+/* Here I added the same level of specificity to allow the child's rule to
+execute based on the order of the cascade. */
+div.child {
+  color: red;
+  font-size: 14px;
 }
