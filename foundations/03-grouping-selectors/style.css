@@ -1,0 +1,14 @@
+/* Grouping classes to assign shared rules */
+.first_btn, .second_btn {
+  font-family: "Helvetica" "Times New Roman" sans-serif;
+  font-size: 28px;
+}
+/* Assigning specific rules to the first button. */
+.first_btn {
+  color: #ffffff;
+  background-color: #000000;
+}
+/* Assigning specific rules to the second button. */
+.second_btn {
+  background-color: #f7d80a;
+}
